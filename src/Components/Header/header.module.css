@@ -1,0 +1,24 @@
+.header {
+  margin-top: 2%;
+  grid-area: h;
+  background-color: #D0F0FF;
+  display: grid;
+  grid-template-columns: 0.3fr 0.25fr repeat(7, auto);
+  align-items: center;
+  justify-items: center;
+
+}
+
+.header img {
+  width: 150px;
+}
+
+@font-face {
+  font-family: 'mr_DopestyleG';
+  src: url(../../Fonts/19510.otf);
+}
+
+.motto {
+  font-family:'mr_DopestyleG';
+  font-size: 26px;
+}

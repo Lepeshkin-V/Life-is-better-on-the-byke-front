@@ -1,0 +1,17 @@
+.shortArticleBlock {
+    
+}
+
+.images{
+    width: 270px;
+    margin-top: 10px;
+    border: 3px solid;
+    border-color: #e9c1;
+}
+
+.navlink {
+    text-decoration: none;
+    color: #15194D;
+}
+
+.navlink:hover { text-decoration: underline; }

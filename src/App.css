@@ -1,23 +1,84 @@
-.app-wraper {
+html {
+  color: #15194D;
+}
+@font-face {
+  font-family: 'TroubleSide';
+  src: url('./Fonts/Troubleside.ttf');
+}
+
+@font-face {
+  font-family: 'Dihjauti-Regular';
+  src: url('./Fonts/Dihjauti-Regular.otf');
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  background-image: url(Assets/img/body-bg.jpg);
+  background-position: left top;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  font-family: 'Dihjauti-Regular';
+}
+
+.frame {
+  width: 85%;
+  margin: auto;
+}
+
+.app-wrapper {
   display: grid;
-  grid-template-rows: 1fr 9fr;
+  grid-template-rows: 1fr 3.7fr 0.3fr;
   grid-template-columns: 1fr;
   grid-template-areas: 
   "h"
-  "c";
+  "c"
+  "f";
 }
 
-.header {
-  grid-area: h;
-  background-color: #D0F0FF;
-  display: grid;
-  grid-template-columns: repeat(8, 0.125fr);
-}
-
-.header img {
-  width: 150px;
-}
 .content {
-
  grid-area: c;
+ 
 }
+
+button {
+  color: #15194D;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'TroubleSide';
+  font-size: 18px;
+  border: none;
+  background-color: #D0F0FF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 6px 0px #15194D;
+
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 0.950em;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+
+}
+
+button:hover {
+  color: #527c82;
+  box-shadow: 0 0 10px 0 #527c82 inset, 0 0 10px 4px #527c82;
+}
+
+button:hover,
+button:focus {
+  outline: 0;
+}
+

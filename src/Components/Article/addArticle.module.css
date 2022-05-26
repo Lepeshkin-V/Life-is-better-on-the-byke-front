@@ -1,0 +1,58 @@
+.addArticle {
+    margin-top: 10px;
+    background-color: #D0F0FF;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.text {
+    box-sizing:border-box;
+    width:60%;
+    padding:15px;
+    border-radius:10px;
+    font-size: 16px;
+    resize: none; 
+    font-family: 'Dihjauti-Regular';
+    outline: none;
+	-moz-appearance: none;
+	border: 2px solid #15194D;
+}
+
+input {
+    box-sizing:border-box;
+    padding:10px;
+    width: 40%;
+    font-family: 'Dihjauti-Regular';
+    border-radius:10px;
+    border-color: #15194D;
+    color: #15194D;
+    font-size: 14px;
+    outline: none;
+	-moz-appearance: none;
+}
+
+.block {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    font-size: 18px;
+    font-weight: 600;
+}
