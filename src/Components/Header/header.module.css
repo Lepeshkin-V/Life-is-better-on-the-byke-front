@@ -6,7 +6,7 @@
   grid-template-columns: 0.3fr 0.25fr repeat(7, auto);
   align-items: center;
   justify-items: center;
-
+  max-height: 150px;
 }
 
 .header img {
@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'mr_DopestyleG';
-  src: url(../../Fonts/19510.otf);
+  src: url(../../Assets/Fonts/19510.otf);
 }
 
 .motto {

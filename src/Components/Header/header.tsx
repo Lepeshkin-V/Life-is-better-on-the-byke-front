@@ -1,9 +1,38 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from '../../Assets/img/logo.png'
-import header from './header.module.css'
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { signOut } from "../../store/authSlice";
+import header from './header.module.css';
+import _ from "lodash";
 
 const Header = () => {
+  
+    const currentUser = useAppSelector((state) => state.auth.currentUser);
+    const dispatch = useAppDispatch()
+  
+    const exit = () => {
+      dispatch(signOut())
+    }
+  
+    const EntryExit = () => {
+      if (_.isEmpty(currentUser)) {
+        return (
+            <NavLink to="/entry">
+              <button>Вход</button>
+            </NavLink>
+        );
+      }
+      else{
+        return (
+          <NavLink to="/" onClick={()=>exit()}>
+            <button>Выход</button>
+          </NavLink>
+        );
+      }
+    };
+  
+
     return (
         <header className={header.header}>
             <img src={logo} alt="logo" />
@@ -17,7 +46,7 @@ const Header = () => {
             <NavLink to={"/cycling"}>
                 <button>Велоспорт</button>
             </NavLink>
-            <NavLink to={"/tips"}>
+            <NavLink to={"/advice"}>
                 <button>Советы</button>
             </NavLink>
             <NavLink to={"/training"}>
@@ -26,9 +55,7 @@ const Header = () => {
             <NavLink to={"/repair"}>
                 <button>Велоремонт</button>
             </NavLink>
-            <NavLink to={"/entry"}>
-                <button>Вход</button>
-            </NavLink>
+            <EntryExit />
         </header>
     )
 }

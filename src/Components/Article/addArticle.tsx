@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Article } from "../../common/type";
-import { useAppDispatch} from "../../hooks";
-import { сreateArticle } from "../../store/articleSlice";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector} from "../../hooks";
+import { createAsyncArticle } from "../../store/articleSlice";
 import addArticleStyle from './addArticle.module.css'
 
 const AddArticle = () => {
@@ -10,26 +9,19 @@ const AddArticle = () => {
     const [link, setLink] = useState("");
     const [name, setName] = useState("")
     const [text, setText] = useState("");
-    
+    const error = useAppSelector(state => state.articles.error);
     const navigate = useNavigate();
-    const theme = useLocation().pathname.slice(1);
+    const {type} = useParams();
+    console.log(type);
+    const themeArticle = useLocation().pathname.slice(5);
 
     const dispatch = useAppDispatch();
-
     const addArticle = () => {
-
-          const newArticle: Article = {
-            id: new Date().toString(),
-            titleImg: link,
-            name: name,
-            theme: theme,
-            text: text
-        }
-  
-          dispatch(сreateArticle(newArticle));
+          dispatch(createAsyncArticle({image:link, title: name, type: themeArticle, text:text}));
+          setText('');
+          setName('');
           setText('');
           navigate('/');
-      
     }
   
     return (

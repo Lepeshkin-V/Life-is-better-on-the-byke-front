@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Article } from "../../common/type";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { updateArticle} from "../../store/articleSlice";
+import { updateAsyncArticle} from "../../store/articleSlice";
 import addArticleStyle from './addArticle.module.css'
 
 const UpdateArticle = () => {
@@ -12,27 +12,17 @@ const UpdateArticle = () => {
 
     const articles: Article[] = useAppSelector(state => state.articles.articles)
     const article: Article | undefined = articles.find(item => item.id === idArticle);
-    const [link, setLink] = useState(article?.titleImg);
-    const [name, setName] = useState(article?.name);
+    const [link, setLink] = useState(article?.image);
+    const [name, setName] = useState(article?.title);
     const [text, setText] = useState(article?.text);
     
     const navigate = useNavigate();
-    const articleTheme = article?.theme;
+    const articleTheme = article?.type;
     const dispatch = useAppDispatch();
 
     const upgradeArticle = () => {
-
         if(idArticle && link && name && articleTheme && text){
-          const updatedArticle: Article = {
-            id: idArticle,
-            titleImg: link,
-            name: name,
-            theme: articleTheme,
-            text: text
-        }
-  
-          dispatch(updateArticle(updatedArticle));
-          navigate("/" + article?.theme+ "/article/" + idArticle);
+          navigate("/" + article?.type+ "/article/" + idArticle);
     }
     else{return}
       

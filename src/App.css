@@ -3,12 +3,12 @@ html {
 }
 @font-face {
   font-family: 'TroubleSide';
-  src: url('./Fonts/Troubleside.ttf');
+  src: url('./Assets/Fonts/Troubleside.ttf');
 }
 
 @font-face {
   font-family: 'Dihjauti-Regular';
-  src: url('./Fonts/Dihjauti-Regular.otf');
+  src: url('./Assets/Fonts/Dihjauti-Regular.otf');
 }
 
 body {
@@ -29,7 +29,7 @@ body {
 
 .app-wrapper {
   display: grid;
-  grid-template-rows: 1fr 3.7fr 0.3fr;
+  grid-template-rows: 150px auto 30px;
   grid-template-columns: 1fr;
   grid-template-areas: 
   "h"

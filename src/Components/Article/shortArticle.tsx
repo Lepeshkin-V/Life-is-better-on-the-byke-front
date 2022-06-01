@@ -10,10 +10,10 @@ interface articleProps {
 const ShortArticle = (props: articleProps) => {
 
     return (
-        <NavLink to={`/${props.article.theme}/article/${props.article.id}`} className = {shortArticle.navlink}>
+        <NavLink to={`/${props.article.type}/article/${props.article.id}`} className = {shortArticle.navlink}>
             <div className = {shortArticle.shortArticleBlock}>
-                <img src= {props.article.titleImg} className={shortArticle.images} />
-                <p>{props.article.name}</p>
+                <img src= {props.article.image} className={shortArticle.images} />
+                <p className={shortArticle.name}>{props.article.title}</p>
             </div>
         </NavLink>
     );

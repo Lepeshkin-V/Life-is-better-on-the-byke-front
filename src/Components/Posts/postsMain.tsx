@@ -1,18 +1,24 @@
-import React from "react";
-import { Article } from "../../common/type";
-import { useAppSelector } from "../../hooks";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { fetchArticles } from "../../store/articleSlice";
 import ShortArticle from "../Article/shortArticle";
 import post from './posts.module.css'
 
 
 const PostsMain = () => {
+    
+    const dispatch = useAppDispatch();
+    const articles = useAppSelector(state => state.articles.articles);
 
-    const articles: Article[] = useAppSelector(state => state.articles.articles)
+    useEffect(()=>{
+        dispatch(fetchArticles())
+      }, [])
+    
 
     return (
-        <div>
+        <div className = {post.block}>
             <div className={post.postsGrid}>
-                {articles.map(post => {return <ShortArticle article={post}/>})}
+                {articles.map(post => {return <ShortArticle key={post.id} article={post}/>})}
             </div>
         </div>
     );

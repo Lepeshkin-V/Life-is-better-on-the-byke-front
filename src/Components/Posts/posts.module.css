@@ -1,6 +1,5 @@
 .postsGrid {
-    margin: auto;
-    width: 80%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(auto-fill, 235px);
@@ -12,4 +11,10 @@
     margin-top: 10px;
     background-color: #D0F0FF;
     margin-bottom: 20px; 
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

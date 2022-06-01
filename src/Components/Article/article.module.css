@@ -5,4 +5,10 @@
 
 .text {
     text-align: left;
+    width: 100%;
+}
+
+.block {
+    width: 90%;
+    margin: auto;
 }

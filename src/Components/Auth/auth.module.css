@@ -35,7 +35,7 @@ input {
     border-radius:10px;
     align-items: center;
     justify-items: center;
-    margin-bottom: 0;
+    margin: auto;
 }
 
 span {

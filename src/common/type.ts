@@ -1,27 +1,67 @@
 export type Article= {
     id: string,
-    titleImg: string,
-    name: string,
-    theme: string,
-    text: string;
-    coments?: Comment[]
+    title: string,
+    text: string,
+    image?: string,
+    type: string,
+    comments: Comment[],
+    updatedAt: string,
+    createdAt: string
 }
 
-export type ShortArticle = {
-    articleId: number,
-    nameArticle: string,
-    imgPath: string
+export type SArticle = {
+    articleId: string,
+    titleImg:string,
+    name: string,
+    type: string,
 }
 
 export type Comment = {
     id: string,
-    articleId: number,
     userId: number,
-    text: string
+    articleId: number,
+    comment: string
+    user: User;
 }
 
 export type User = {
     id: string,
-    username: string,
-    dateOfCreate: string
+    login: string,
+    password: string,
+    updatedAt: string,
+    createdAt: string,
 }
+
+export type InputType = {
+  comment: string,
+  userId: string,
+  login: string
+}
+
+export type Arguments = {
+  input: InputType,
+  idArticle: string,
+}
+
+export type signUpDto = {
+    login: string;
+    password: string;
+  };
+  
+  export type signInDto = {
+    login: string;
+    password: string;
+  };
+  
+  export type SignResponse = {
+    user: User;
+    jwtToken: string;
+  };
+  
+export type UsersState = {
+    currentUser: User;
+    loading: boolean;
+    error: string | null;
+    token: string;
+  };
+  

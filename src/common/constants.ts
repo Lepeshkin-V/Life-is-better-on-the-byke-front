@@ -2,7 +2,7 @@ export const AppRoutes = {
     ALL: '',
     REVIEW: '/review',
     CYCLING: '/cycling',
-    TIPS: '/tips',
+    ADVICE: '/advice',
     TRAINING: '/training',
     REPAIR: '/repair',
     ENTRY: '/entry',
