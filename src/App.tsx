@@ -4,11 +4,11 @@ import Footer from './Components/Footer/footer'
 import Content from './Components/Content/сontent';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import { AppRoutes } from './common/constants';
-import AddArticle from './Components/Article/addArticle';
+import AddArticle from './Components/Article/AddArticle/addArticle';
 import Posts from './Components/Posts/posts';
 import ArticleList from './Components/Article/article';
 import PostsMain from './Components/Posts/postsMain';
-import UpdateArticle from './Components/Article/updateArticle';
+import UpdateArticle from './Components/Article/UpdateArticle/updateArticle';
 import Auth from './Components/Auth/authSignIn';
 import Registration from './Components/Auth/authSignUp';
 

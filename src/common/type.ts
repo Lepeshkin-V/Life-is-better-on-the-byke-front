@@ -1,3 +1,4 @@
+
 export type Article= {
     id: string,
     title: string,
@@ -65,3 +66,20 @@ export type UsersState = {
     token: string;
   };
   
+  export type ArticleDto = {
+    image: string,
+    title: string,
+    text: string,
+    type: string,
+  }
+
+  export type ArgumentsArticle = {
+    id:string,
+    input: ArticleDto
+  }
+
+  export type DeleteCommDto = {
+    postId: string
+    commentId: string,
+    userId: string
+  }

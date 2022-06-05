@@ -8,7 +8,7 @@
 .addComment {
     background-color: #D0F0FF;
     margin-bottom: 20px;
-    width: 30%;
+    width: 25%;
 }
 
 .text {
@@ -45,4 +45,14 @@
     font-size: 16px;
     font-family: 'Dihjauti-Regular';
     background-color: #F0FBFF;
+}
+
+.del {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delButton {
+    box-shadow: none;
+    padding: 0;
 }

@@ -25,9 +25,7 @@ const Header = () => {
       }
       else{
         return (
-          <NavLink to="/" onClick={()=>exit()}>
-            <button>Выход</button>
-          </NavLink>
+            <button onClick={()=>exit()}>Выход</button>
         );
       }
     };
