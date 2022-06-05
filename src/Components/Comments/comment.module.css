@@ -1,0 +1,58 @@
+.add {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.addComment {
+    background-color: #D0F0FF;
+    margin-bottom: 20px;
+    width: 25%;
+}
+
+.text {
+    box-sizing:border-box;
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    font-size: 16px;
+    resize: none; 
+    font-family: 'Dihjauti-Regular';
+    outline: none;
+	-moz-appearance: none;
+	border: 2px solid #15194D;
+}
+
+.word {
+  display: flex;
+  align-self: flex-start;
+ 
+}
+
+.com {
+    border: 2px solid #15194D;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding: 5px;
+    
+}
+
+.textcom {
+    box-sizing:border-box;
+    width:100%;
+    font-size: 16px;
+    font-family: 'Dihjauti-Regular';
+    background-color: #F0FBFF;
+}
+
+.del {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delButton {
+    box-shadow: none;
+    padding: 0;
+}

@@ -1,0 +1,50 @@
+.entry {
+    margin-top: 10px;
+    background-color: #D0F0FF;
+    margin-bottom: 30px;
+    width: 200px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+input {
+    box-sizing:border-box;
+    padding:10px;
+    width: 300px;
+    font-family: 'Dihjauti-Regular';
+    border-radius:10px;
+    border-color: #15194D;
+    color: #15194D;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 360px;
+    margin-top: 20px;
+    box-sizing: 1px;
+    border: 3px solid #15194D;
+    border-radius:10px;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+}
+
+span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+form {margin-top: 10px;}
+
+.head {
+    font-size: 24px;
+}

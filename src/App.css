@@ -1,38 +1,84 @@
-.App {
+html {
+  color: #15194D;
+}
+@font-face {
+  font-family: 'TroubleSide';
+  src: url('./Assets/Fonts/Troubleside.ttf');
+}
+
+@font-face {
+  font-family: 'Dihjauti-Regular';
+  src: url('./Assets/Fonts/Dihjauti-Regular.otf');
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  background-image: url(Assets/img/body-bg.jpg);
+  background-position: left top;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  font-family: 'Dihjauti-Regular';
+}
+
+.frame {
+  width: 85%;
+  margin: auto;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-rows: 150px auto 30px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "h"
+  "c"
+  "f";
+}
+
+.content {
+ grid-area: c;
+ 
+}
+
+button {
+  color: #15194D;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'TroubleSide';
+  font-size: 18px;
+  border: none;
+  background-color: #D0F0FF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 6px 0px #15194D;
+
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 0.950em;
+  line-height: 1;
+  text-decoration: none;
   text-align: center;
+  text-transform: uppercase;
+
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:hover {
+  color: #527c82;
+  box-shadow: 0 0 10px 0 #527c82 inset, 0 0 10px 4px #527c82;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover,
+button:focus {
+  outline: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

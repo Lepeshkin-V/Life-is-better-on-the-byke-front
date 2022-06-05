@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header/header';
+import Footer from './Components/Footer/footer'
+import Content from './Components/Content/сontent';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { AppRoutes } from './common/constants';
+import AddArticle from './Components/Article/AddArticle/addArticle';
+import Posts from './Components/Posts/posts';
+import ArticleList from './Components/Article/article';
+import PostsMain from './Components/Posts/postsMain';
+import UpdateArticle from './Components/Article/UpdateArticle/updateArticle';
+import Auth from './Components/Auth/authSignIn';
+import Registration from './Components/Auth/authSignUp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className='frame'>
+        <div className='app-wrapper'>
+          <Header />
+          <Content>
+          <Routes>
+            <Route path={AppRoutes.ALL} element = {<PostsMain />}/>
+            <Route path={AppRoutes.REVIEW} element = {<Posts />}/>
+            <Route path={AppRoutes.CYCLING} element = {<Posts />}/>
+            <Route path={AppRoutes.ADVICE} element = {<Posts />}/>
+            <Route path={AppRoutes.TRAINING} element = {<Posts />}/>
+            <Route path={AppRoutes.REPAIR} element = {<Posts />}/>
+            <Route path={AppRoutes.ENTRY} element = {<Auth />}/>
+            <Route path={AppRoutes.REG} element = {<Registration />}/>
+            <Route path = {AppRoutes.ADD + "/:theme"} element = {<AddArticle />}/>
+            <Route path = {"/:theme" + AppRoutes.ARTICLE +"/:id"} element = {<ArticleList />} />
+            <Route path = {"/:theme" + AppRoutes.ARTICLE +"/:id/update"} element = {<UpdateArticle />} />
+          </Routes>
+          </Content>
+          <Footer />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

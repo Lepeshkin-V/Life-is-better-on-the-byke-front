@@ -1,0 +1,11 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F0FBFF;
+    text-align: center;
+    align-self: center;
+    min-height: 550px;
+}
+
+main {width: 100%;}
