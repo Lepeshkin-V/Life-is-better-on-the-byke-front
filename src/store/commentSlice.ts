@@ -18,7 +18,7 @@ const initialState: CommentsState = {
 
 export const fetchComments = createAsyncThunk<Comment[], string, {rejectValue: string}>(
   "comments/fetchComments", async function (fetchDto, {rejectWithValue}) {
-      const response = await fetch(`http://localhost:3001/posts/${fetchDto}/comments`);
+      const response = await fetch(`https://life-is-beter-on-the-bike.herokuapp.com/posts/${fetchDto}/comments`);
       if(!response.ok) {
           return rejectWithValue("Server Error!")
       }
@@ -37,7 +37,7 @@ export const createAsyncComment = createAsyncThunk<
   { rejectValue: string }
 >("comments/createAsyncComments", async function (commentDto, { rejectWithValue }) {
 
-  const response = await fetch(`http://localhost:3001/posts/${commentDto.idArticle}/comments`, {
+  const response = await fetch(`https://life-is-beter-on-the-bike.herokuapp.com/posts/${commentDto.idArticle}/comments`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ export const deleteAsyncComment = createAsyncThunk<
   { rejectValue: string }
 >("comments/deleteAsyncComments", async function (deleteDto, { rejectWithValue }) {
 
-  const response = await fetch(`http://localhost:3001/posts/${deleteDto.ids.postId}/comments/${deleteDto.ids.commentId}`,{
+  const response = await fetch(`https://life-is-beter-on-the-bike.herokuapp.com/posts/${deleteDto.ids.postId}/comments/${deleteDto.ids.commentId}`,{
     method: 'DELETE',
     headers: {
       'Authorization' : `Bearer ${localStorage.getItem('token')}`

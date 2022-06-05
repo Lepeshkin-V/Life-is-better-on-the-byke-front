@@ -15,7 +15,7 @@ const initialState: ArticlesState = {
 
 export const fetchArticles = createAsyncThunk<Article[], undefined, {rejectValue: string}>(
     "articles/fetchArticles", async function (_, {rejectWithValue}) {
-        const response = await fetch("http://localhost:3001/posts");
+        const response = await fetch("https://life-is-beter-on-the-bike.herokuapp.com/posts");
 
         if(!response.ok) {
             return rejectWithValue("Server Error!")
@@ -32,7 +32,7 @@ export const createAsyncArticle = createAsyncThunk<
   { rejectValue: string }
 >("articles/createAsyncArticles", async function (artilcleDto, { rejectWithValue }) {
 
-  const response = await fetch("http://localhost:3001/posts",{
+  const response = await fetch("https://life-is-beter-on-the-bike.herokuapp.com/posts",{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export const updateAsyncArticle = createAsyncThunk<
   { rejectValue: string }
 >("articles/updateAsyncArticles", async function (artilcleDto, { rejectWithValue }) {
 
-  const response = await fetch(`http://localhost:3001/posts/${artilcleDto.id}`,{
+  const response = await fetch(`https://life-is-beter-on-the-bike.herokuapp.com/posts/${artilcleDto.id}`,{
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ export const deleteAsyncArticle = createAsyncThunk<
   { rejectValue: string }
 >("posts/deleteAsyncPost", async function (id, { rejectWithValue }) {
 
-  const response = await fetch(`http://localhost:3001/posts/${id}`,{
+  const response = await fetch(`https://life-is-beter-on-the-bike.herokuapp.com/posts/${id}`,{
     method: 'DELETE',
     headers: {
       'Authorization' : `Bearer ${localStorage.getItem('token')}`

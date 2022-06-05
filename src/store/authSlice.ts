@@ -19,7 +19,7 @@ const initialState: UsersState = {
     signInDto,
     { rejectValue: string }
   >("authUser/signIn", async function (dto, { rejectWithValue }) {
-    const response = await fetch("http://localhost:3001/users/signIn", {
+    const response = await fetch("https://life-is-beter-on-the-bike.herokuapp.com/users/signIn", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const initialState: UsersState = {
     signUpDto,
     { rejectValue: string }
   >("authUser/signUp", async function (dto, { rejectWithValue }) {
-    const response = await fetch("http://localhost:3001/users/signUp", {
+    const response = await fetch("https://life-is-beter-on-the-bike.herokuapp.com/users/signUp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
