@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signUpDto } from "../../common/type";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { signUp } from "../../store/authSlice";
 import reg from './auth.module.css'
 const Registration = () => {
@@ -25,9 +25,14 @@ const Registration = () => {
         }
 
         const { meta, payload } = await dispatch(signUp(data))
-        if (meta.requestStatus === 'rejected') {
-            setLogin("login уже исапользуется");
-            return setError('login уже исапользуется')
+
+        if (meta.requestStatus === 'rejected'&& payload === "Forbidden") {
+            setError("Логин уже используется");
+            return error
+        }
+        else if (meta.requestStatus === 'rejected') {
+            setError("Ошибка регистрации, попробуйте позже");
+            return error
         }
         else {
             setError('')
@@ -46,6 +51,7 @@ const Registration = () => {
                     <input type="text" value={login} onChange={(e) => setLogin(e.target.value)}></input>
                     <span>Пароль</span>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                    <span>{error}</span>
                     <button type="button" className={reg.entry}  onClick={() =>registration()}>Зарегистрироваться</button>
                 </form>
                 <span>У вас уже есть аккаунт?</span>

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import _ from "lodash";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signInDto } from "../../common/type";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { signIn } from "../../store/authSlice";
 import auth from './auth.module.css'
 
@@ -13,6 +14,12 @@ const Auth = () => {
     const [password, setPassword] = useState("")
     const [error,setError] = useState('');
     const navigate = useNavigate();
+    const currentUser = useAppSelector(state => state.auth.currentUser);
+
+    useEffect(()=>{if (!_.isEmpty(currentUser)) {
+        navigate('/');
+       }})
+    
 
     const entry = async () => {
         setError('')
@@ -26,10 +33,14 @@ const Auth = () => {
           password: password
         }
 
-        const {meta} = await dispatch(signIn(data))
-        if(meta.requestStatus === 'rejected'){
-            setError('Неверный login или пароль');
+        const {meta, payload} = await dispatch(signIn(data))
+        if(meta.requestStatus === 'rejected' && payload === "Unauthorized"){
+            setError('Ошибка авторизации, проверьте вводимые данные');
             return error;
+        }
+        else if (meta.requestStatus === 'rejected') {
+            setError("Ошибка авторизации, попробуйте позже");
+            return error
         }
         else {
           setError('')
@@ -48,6 +59,7 @@ const Auth = () => {
                     <input type="text" value={login} onChange={(e) => setLogin(e.target.value)}></input>
                     <span>Пароль</span>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                    <span>{error}</span>
                     <button type="button" className={auth.entry} onClick = {() => entry()}>Войти</button>
                 </form>
                 <span>Нет учетной записи?</span>
