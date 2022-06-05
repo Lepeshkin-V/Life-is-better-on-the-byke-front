@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice, isRejectedWithValue } from '@reduxjs/toolkit';
-import { reject } from 'lodash';
-import { Article, SArticle} from './../common/type';
+import { createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import { Article, ArticleDto} from './../common/type';
 
 type ArticlesState = {
     articles: Article[],
@@ -29,12 +28,7 @@ export const fetchArticles = createAsyncThunk<Article[], undefined, {rejectValue
 
 export const createAsyncArticle = createAsyncThunk<
   Article,
-  {
-    image: string,
-    title: string,
-    text: string,
-    type: string,
-  },
+  ArticleDto,
   { rejectValue: string }
 >("articles/createAsyncArticles", async function (artilcleDto, { rejectWithValue }) {
 
@@ -61,29 +55,23 @@ export const updateAsyncArticle = createAsyncThunk<
   Article,
   {
     id: string,
-    image: string,
-    title: string,
-    text: string,
-    type: string,
+    input: ArticleDto
   },
   { rejectValue: string }
 >("articles/updateAsyncArticles", async function (artilcleDto, { rejectWithValue }) {
 
-  const response = await fetch("http://localhost:3001/posts",{
+  const response = await fetch(`http://localhost:3001/posts/${artilcleDto.id}`,{
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
       'Authorization' : `Bearer ${localStorage.getItem('token')}`
     },
-    body: JSON.stringify(artilcleDto)
+    body: JSON.stringify(artilcleDto.input)
   });
   if (!response.ok) {
     return rejectWithValue("Server Error!");
   }
-  if (response.status === 401){
-    return rejectWithValue("Время сессии истекло, пожалуйста авторизируйтесь вновь");
-  }
-
+ 
   const newArticle = (await response.json()) as Article
 
   return newArticle;
@@ -123,8 +111,10 @@ const articleSlice = createSlice({
         })
         .addCase(fetchArticles.fulfilled, (state, action) => {
           state.articles = action.payload
+          state.articles.reverse()
           state.loading = false
         })
+        
         .addCase(createAsyncArticle.pending, (state)=>{
           state.error = null
         })
@@ -137,6 +127,15 @@ const articleSlice = createSlice({
         })
         .addCase(createAsyncArticle.fulfilled, (state, action)=>{
           state.articles.unshift(action.payload)
+        })
+        .addCase(updateAsyncArticle.pending, (state)=>{
+          state.error = null
+        })
+        .addCase(updateAsyncArticle.fulfilled, (state, action)=>{
+          const index = state.articles.findIndex((article) => article.id === action.payload.id);
+          if (index !== -1){
+          state.articles[index] = action.payload;
+          }
         })
         .addCase(deleteAsyncArticle.fulfilled, (state, action)=>{
           const index = state.articles.findIndex((article) => article.id === action.payload);

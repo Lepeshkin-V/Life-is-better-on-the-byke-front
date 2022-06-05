@@ -28,7 +28,7 @@ const initialState: UsersState = {
     });
   
     if (!response.ok) {
-      return rejectWithValue("Server Error!");
+      return rejectWithValue(response.statusText);
     }
   
     const data: SignResponse = await response.json();
@@ -51,7 +51,7 @@ const initialState: UsersState = {
     });
   
     if (!response.ok) {
-      return rejectWithValue("Server Error!");
+      return rejectWithValue(response.statusText);
     }
   
     const data: SignResponse = await response.json();
@@ -82,9 +82,9 @@ const initialState: UsersState = {
           state.token = action.payload.jwtToken;
           state.loading = false;
         })
-        .addCase(signIn.rejected, (state) => {
-          state.error = "Wrong login or password";
-          console.log("error");
+        .addCase(signIn.rejected, (state, action) => {
+          if(action.payload)
+            state.error = action.payload;
           state.loading = false;
         })
         .addCase(signUp.pending, (state) => {
@@ -97,9 +97,9 @@ const initialState: UsersState = {
           state.token = action.payload.jwtToken;
           state.loading = false;
         })
-        .addCase(signUp.rejected, (state) => {
-          state.error = "Wrong login or password";
-          console.log("error");
+        .addCase(signUp.rejected, (state, action) => {
+          if(action.payload)
+            state.error = action.payload;
           state.loading = false;
         });
     },
