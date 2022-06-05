@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Article } from "../../common/type";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { updateAsyncArticle} from "../../store/articleSlice";
-import addArticleStyle from './addArticle.module.css'
+import { ArgumentsArticle, Article, ArticleDto } from "../../../common/type";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { updateAsyncArticle} from "../../../store/articleSlice";
+import addArticleStyle from '../AddArticle/addArticle.module.css'
 
 const UpdateArticle = () => {
 
     const { id } = useParams();
     const idArticle = id;
 
-    const articles: Article[] = useAppSelector(state => state.articles.articles)
-    const article: Article | undefined = articles.find(item => item.id === idArticle);
+    const articles = useAppSelector(state => state.articles.articles)
+    const article = articles.find(item => item.id === idArticle);
     const [link, setLink] = useState(article?.image);
     const [name, setName] = useState(article?.title);
     const [text, setText] = useState(article?.text);
@@ -22,7 +22,23 @@ const UpdateArticle = () => {
 
     const upgradeArticle = () => {
         if(idArticle && link && name && articleTheme && text){
-          navigate("/" + article?.type+ "/article/" + idArticle);
+        const input: ArticleDto = {
+            image:link,
+            title:name,
+            text:text,
+            type: articleTheme
+
+        }
+        const Arg: ArgumentsArticle = {
+            id:idArticle,
+            input:input
+        }
+        
+        dispatch(updateAsyncArticle(Arg));
+        setLink("");
+        setName("");
+        setText("");
+        navigate("/" + article?.type+ "/article/" + idArticle);
     }
     else{return}
       

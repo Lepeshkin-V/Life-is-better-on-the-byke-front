@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { Article} from "../../common/type";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import ArticleInfo from "./articleInfo";
+import ArticleInfo from "./ArticleInfo/articleInfo";
 import articl from './article.module.css';
 import { fetchArticles } from "../../store/articleSlice";
 
@@ -10,20 +9,18 @@ import { fetchArticles } from "../../store/articleSlice";
 const ArticleList = () => {
 
     const { id } = useParams();
+    const {id2} = useParams();
     const dispatch = useAppDispatch();
-    const idArticle = id
-
     const articles = useAppSelector((state) => state.articles.articles);
-    
+
     useEffect(()=>{
         dispatch(fetchArticles())
       }, [])
       
-    const article = articles.find(item => item.id === idArticle);
+    const article = articles.find(item => item.id === id);
     if(!article){
-        return (<p>Article not found</p>);
-    }else
-
+        return <p>Article not found</p>
+    }
     return (
         <div className={articl.block}>
             <ArticleInfo article = {article}/>

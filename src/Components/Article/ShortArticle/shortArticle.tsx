@@ -1,7 +1,7 @@
 import React from "react";
 import shortArticle from './shortArticle.module.css'
 import { NavLink } from "react-router-dom";
-import { Article} from "../../common/type";
+import { Article} from "../../../common/type";
 
 interface articleProps {
     article: Article;
