@@ -12,7 +12,7 @@ const ShortArticle = (props: articleProps) => {
     return (
         <NavLink to={`/${props.article.type}/article/${props.article.id}`} className = {shortArticle.navlink}>
             <div className = {shortArticle.shortArticleBlock}>
-                <img src= {props.article.image} className={shortArticle.images} />
+                <img src= {props.article.image} className={shortArticle.images} alt="Картинка" />
                 <p className={shortArticle.name}>{props.article.title}</p>
             </div>
         </NavLink>

@@ -9,7 +9,6 @@ import { fetchArticles } from "../../store/articleSlice";
 const ArticleList = () => {
 
     const { id } = useParams();
-    const {id2} = useParams();
     const dispatch = useAppDispatch();
     const articles = useAppSelector((state) => state.articles.articles);
 

@@ -1,6 +1,4 @@
-import React, { Children } from "react"
-import { NavLink } from "react-router-dom";
-import ShortArticle from "../Article/ShortArticle/shortArticle";
+import React from "react"
 import content from './сontent.module.css'
 
 type props = React.HTMLAttributes<HTMLDivElement>;

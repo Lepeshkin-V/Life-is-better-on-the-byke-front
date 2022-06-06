@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {Comment, DeleteCommDto, User} from './../common/type';
+import {Comment, DeleteCommDto} from './../common/type';
 
 type CommentsState = {
     comments: Comment[],

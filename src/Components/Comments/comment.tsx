@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { DeleteCommDto } from "../../common/type";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { fetchArticles } from "../../store/articleSlice";
 import { signOut } from "../../store/authSlice";
 import { deleteAsyncComment } from "../../store/commentSlice";
 import comment from "./comment.module.css";

@@ -35,7 +35,7 @@ const ArticleInfo = (props: articleProps) => {
     }, [])
 
     const deleteOrUpdate = () => {
-        if(currentUser.login == "veloadmin55")
+        if(currentUser.login === "veloadmin55")
         return (<div className={addArticle.buttons}>
             <NavLink to={"/" + props.article.type + "/article/" + props.article.id + "/update"}>
                 <button className={addArticle.addArticle}>Редактировать</button>
@@ -46,7 +46,7 @@ const ArticleInfo = (props: articleProps) => {
     return (
         <div className={article.block}>
             <div>
-                <img src={props.article.image} className={article.headImg} />
+                <img src={props.article.image} className={article.headImg} alt="Картинка"/>
                 <h1>{props.article.title}</h1>
                 <div className={article.text}>
                     <p>{props.article.text}</p>

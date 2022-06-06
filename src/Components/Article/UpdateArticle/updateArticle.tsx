@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArgumentsArticle, Article, ArticleDto } from "../../../common/type";
+import { ArgumentsArticle, ArticleDto } from "../../../common/type";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { updateAsyncArticle} from "../../../store/articleSlice";
 import addArticleStyle from '../AddArticle/addArticle.module.css'

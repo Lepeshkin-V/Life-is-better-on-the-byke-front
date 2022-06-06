@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signUpDto } from "../../common/type";
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useAppDispatch } from "../../hooks";
 import { signUp } from "../../store/authSlice";
 import reg from './auth.module.css'
 const Registration = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector} from "../../../hooks";
+import { useAppDispatch} from "../../../hooks";
 import { createAsyncArticle } from "../../../store/articleSlice";
 import addArticleStyle from './addArticle.module.css'
 
