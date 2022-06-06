@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
     return (
         <footer>
-            nen vjq aenth
+            Rehcjdjq ghjtrn ABN-191
         </footer>
     )
 }

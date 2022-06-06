@@ -22,8 +22,12 @@ const AddComment = (props: CreateCommentProps) => {
     const addComment = async () =>{
         if(_.isEmpty(currentUser)){
             setText("");
-            setError("Только зарегистрированные пользователи могут оставлять отзывы")
+            setError("Только зарегистрированные пользователи могут оставлять отзывы");
             return 
+        }
+        if(_.isEmpty(text)){
+            setError("Отзыв не может быть пустым");
+            return
         }
         const input: InputType = {
             comment:text,
